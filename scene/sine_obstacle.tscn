@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://chc4a60c28td0"]
+
+[ext_resource type="Script" uid="uid://dth565twgddom" path="res://script/sine_obstacle.gd" id="1_y84h2"]
+[ext_resource type="Texture2D" uid="uid://cpkyvlro4vsjg" path="res://art/costume8 (3).svg" id="2_cuq7g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eote"]
+radius = 28.01785
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qj28"]
+radius = 28.284271
+
+[node name="sine_obstacle" type="RigidBody2D" unique_id=874090983]
+collision_layer = 0
+collision_mask = 4
+gravity_scale = 0.509
+script = ExtResource("1_y84h2")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1594479276]
+position = Vector2(0, 3.8146973e-06)
+scale = Vector2(0.097634785, 0.097634785)
+texture = ExtResource("2_cuq7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762768119]
+shape = SubResource("CircleShape2D_2eote")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2067320326]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1196177250]
+shape = SubResource("CircleShape2D_7qj28")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=237849905]
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

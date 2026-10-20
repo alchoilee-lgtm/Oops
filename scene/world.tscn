@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://bh2mmiuwnwtod"]
+
+[ext_resource type="Script" uid="uid://c31064awlk4v" path="res://script/world.gd" id="1_w4qq1"]
+[ext_resource type="PackedScene" uid="uid://btoampbx4a05x" path="res://scene/platform.tscn" id="2_m5mgf"]
+[ext_resource type="PackedScene" uid="uid://blnmve6ogvuau" path="res://scene/death_screen.tscn" id="2_y3jn2"]
+[ext_resource type="PackedScene" uid="uid://dj2u4acs8utma" path="res://scene/player.tscn" id="3_emkrx"]
+[ext_resource type="Script" uid="uid://dm7mdr3fw57dv" path="res://script/camera_2d.gd" id="4_m5mgf"]
+[ext_resource type="PackedScene" uid="uid://etp8u08h23wa" path="res://scene/balloon.tscn" id="5_emkrx"]
+[ext_resource type="Texture2D" uid="uid://3uhcqriinhye" path="res://art/image (14) (1).svg" id="5_hcb8y"]
+[ext_resource type="Texture2D" uid="uid://cdfndqbg6hs5c" path="res://art/backdrop1 (1).svg" id="6_0tg4p"]
+[ext_resource type="AudioStream" uid="uid://ckvsv0nmiwlq1" path="res://sounds/jonasblakewood-background-music-618629.mp3" id="9_yur6x"]
+[ext_resource type="Script" uid="uid://007hf440tfbe" path="res://script/music.gd" id="10_7ghph"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2eote"]
+bg_color = Color(0.105882354, 0.52156866, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qj28"]
+bg_color = Color(0.4862745, 0.2901961, 1, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 13
+corner_radius_top_right = 13
+corner_radius_bottom_right = 13
+corner_radius_bottom_left = 13
+
+[node name="world" type="Node2D" unique_id=1774501142]
+script = ExtResource("1_w4qq1")
+
+[node name="Death Screen" parent="." unique_id=1394504715 instance=ExtResource("2_y3jn2")]
+unique_name_in_owner = true
+visible = false
+z_index = 50
+position = Vector2(0, -2)
+
+[node name="Player" parent="." unique_id=1891966674 instance=ExtResource("3_emkrx")]
+position = Vector2(221, 479)
+
+[node name="platform" parent="." unique_id=1453230582 instance=ExtResource("2_m5mgf")]
+position = Vector2(221, 530)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1105297879]
+unique_name_in_owner = true
+position = Vector2(576, 324)
+script = ExtResource("4_m5mgf")
+
+[node name="ProgressBar" type="ProgressBar" parent="Camera2D" unique_id=271127186]
+z_index = 2
+offset_left = -488.0
+offset_top = -248.0
+offset_right = 486.0
+offset_bottom = -210.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2eote")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7qj28")
+max_value = 10000.0
+value = 50.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Image(14)(1)" type="Sprite2D" parent="Camera2D" unique_id=74053605]
+z_index = 1
+position = Vector2(-1.4999785, -229)
+scale = Vector2(0.19722557, 0.19555552)
+texture = ExtResource("5_hcb8y")
+
+[node name="Balloon" parent="." unique_id=971905004 instance=ExtResource("5_emkrx")]
+position = Vector2(865, 464)
+
+[node name="Sine Wave" type="Timer" parent="." unique_id=1001270282]
+wait_time = 0.7
+autostart = true
+
+[node name="Asteroid" type="Timer" parent="." unique_id=532990501]
+autostart = true
+
+[node name="Backdrop" type="Sprite2D" parent="." unique_id=255003303]
+z_index = -1
+position = Vector2(581, -3415.1694)
+scale = Vector2(0.35154897, 0.99097604)
+texture = ExtResource("6_0tg4p")
+
+[node name="Shootstacle" type="Timer" parent="." unique_id=1375812059]
+wait_time = 22.0
+one_shot = true
+autostart = true
+
+[node name="Shootstacle 2" type="Timer" parent="." unique_id=1902613120]
+wait_time = 46.0
+one_shot = true
+autostart = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1244832623]
+stream = ExtResource("9_yur6x")
+autoplay = true
+script = ExtResource("10_7ghph")
+
+[connection signal="timeout" from="Sine Wave" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Asteroid" to="." method="_on_asteroid_timeout"]
+[connection signal="timeout" from="Shootstacle" to="." method="_on_shootstacle_timeout"]
+[connection signal="timeout" from="Shootstacle 2" to="." method="_on_shootstacle_2_timeout"]

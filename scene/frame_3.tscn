@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dqhpif7hbj1d1"]
+
+[ext_resource type="Script" uid="uid://ktbew80io406" path="res://script/frame_3.gd" id="1_72mbv"]
+[ext_resource type="Texture2D" uid="uid://df556el2i4xrc" path="res://art/Slide_3 (3).svg" id="2_dv25r"]
+
+[node name="Frame_3" type="Node2D" unique_id=668987707]
+z_index = 1
+script = ExtResource("1_72mbv")
+
+[node name="Slide3" type="Sprite2D" parent="." unique_id=656060452]
+position = Vector2(268, -79)
+scale = Vector2(0.2226668, 0.22266684)
+texture = ExtResource("2_dv25r")

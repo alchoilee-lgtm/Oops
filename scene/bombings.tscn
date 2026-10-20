@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c3na70qxm46st"]
+
+[ext_resource type="Script" uid="uid://bid5t1nvcbgmi" path="res://script/bombings.gd" id="1_pc7le"]
+[ext_resource type="Texture2D" uid="uid://bmu43rd08wr3e" path="res://art/costume1 (1).svg" id="2_u4ayq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x2fso"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 80.31
+initial_velocity_max = 216.67
+gravity = Vector3(0, 1000, 0)
+scale_min = 0.01
+scale_max = 0.01
+color = Color(1, 0.811, 0.37, 1)
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[node name="Bombings" type="Node2D" unique_id=1557863657]
+script = ExtResource("1_pc7le")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1799536977]
+emitting = false
+amount = 30
+texture = ExtResource("2_u4ayq")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_x2fso")

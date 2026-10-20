@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://crexnf5c4uf08"]
+
+[ext_resource type="Texture2D" uid="uid://bqoooy337v4uu" path="res://art/Trans.svg" id="1_2gi1b"]
+[ext_resource type="Script" uid="uid://cm51icnfq8bw7" path="res://script/transition.gd" id="2_pj2mc"]
+
+[node name="Transition" type="Sprite2D" unique_id=884982560]
+z_index = 7
+position = Vector2(575.99994, 986)
+scale = Vector2(1.622061, 1.5395349)
+texture = ExtResource("1_2gi1b")
+script = ExtResource("2_pj2mc")

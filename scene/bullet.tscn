@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://csrg61wka1v0"]
+
+[ext_resource type="Script" uid="uid://blgjboo7t8ojc" path="res://script/bullet.gd" id="1_v8qja"]
+[ext_resource type="Texture2D" uid="uid://cdkjpfnm2jb5d" path="res://art/costume11.svg" id="2_xw300"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eote"]
+size = Vector2(50, 23)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qj28"]
+size = Vector2(50, 24)
+
+[node name="Bullet" type="CharacterBody2D" unique_id=499191149]
+collision_layer = 12
+collision_mask = 0
+script = ExtResource("1_v8qja")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=566884968]
+position = Vector2(-9.536743e-07, 4.7683716e-07)
+rotation = -1.57095
+scale = Vector2(0.1706707, 0.17584257)
+texture = ExtResource("2_xw300")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=369704155]
+shape = SubResource("RectangleShape2D_2eote")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=371153759]
+collision_layer = 12
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=488206102]
+shape = SubResource("RectangleShape2D_7qj28")

@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://dj2u4acs8utma"]
+
+[ext_resource type="Script" uid="uid://gn1ihsvn4kp7" path="res://script/player.gd" id="1_hjaqi"]
+[ext_resource type="Texture2D" uid="uid://b7g1vnm416lec" path="res://art/image (16).svg" id="2_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://clxhkcejbbify" path="res://art/Left_Jump (2).svg" id="2_s4jxa"]
+[ext_resource type="Texture2D" uid="uid://di85o1lpx8axv" path="res://art/Right_Jump (2).svg" id="3_oh5ij"]
+[ext_resource type="Texture2D" uid="uid://bylubrge1t6k1" path="res://art/Left (2).svg" id="4_hp4bs"]
+[ext_resource type="Texture2D" uid="uid://cib5011enn62s" path="res://art/Right (2).svg" id="5_g2vtq"]
+[ext_resource type="Script" uid="uid://dasae8n6yqusi" path="res://script/animated_sprite_2d.gd" id="6_oh5ij"]
+[ext_resource type="AudioStream" uid="uid://d2vkbyoovm43w" path="res://sounds/laserShoot (1).wav" id="8_g2vtq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2eote"]
+bg_color = Color(0.5286667, 0.488, 0.61, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qj28"]
+bg_color = Color(0.35379988, 0.2257, 0.61, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eote"]
+size = Vector2(48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xo3ru"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s4jxa")
+}],
+"loop": 1,
+"name": &"Jump_Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_oh5ij")
+}],
+"loop": 1,
+"name": &"Jump_Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_hp4bs")
+}],
+"loop": 1,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_g2vtq")
+}],
+"loop": 1,
+"name": &"Right",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7qj28"]
+size = Vector2(2488.0005, 2590.6853)
+
+[node name="Player" type="CharacterBody2D" unique_id=1891966674]
+collision_layer = 2049
+script = ExtResource("1_hjaqi")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=465670188]
+z_index = 2
+offset_left = -47.0
+offset_top = -51.000004
+offset_right = -37.0
+offset_bottom = 19.909084
+theme_override_styles/background = SubResource("StyleBoxFlat_2eote")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7qj28")
+max_value = 10.0
+value = 10.0
+fill_mode = 3
+show_percentage = false
+
+[node name="White Outline" type="Sprite2D" parent="." unique_id=1200004195]
+z_index = 1
+position = Vector2(-42, -15.5)
+scale = Vector2(0.019292604, 0.018527918)
+texture = ExtResource("2_hp4bs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298837889]
+shape = SubResource("RectangleShape2D_2eote")
+
+[node name="Coyote Time" type="Timer" parent="." unique_id=26945642]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=873602540]
+z_index = 1
+position = Vector2(0, -16)
+scale = Vector2(0.1499433, 0.14994329)
+sprite_frames = SubResource("SpriteFrames_xo3ru")
+animation = &"Left"
+script = ExtResource("6_oh5ij")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=771194719]
+position = Vector2(-42, -15.5)
+scale = Vector2(0.019292604, 0.018527918)
+collision_layer = 2049
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2097676750]
+position = Vector2(2177, 836.5752)
+scale = Vector2(0.9999999, 1)
+shape = SubResource("RectangleShape2D_7qj28")
+
+[node name="Shoot" type="AudioStreamPlayer" parent="." unique_id=1033923157]
+stream = ExtResource("8_g2vtq")
+volume_db = -5.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

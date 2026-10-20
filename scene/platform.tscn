@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://btoampbx4a05x"]
+
+[ext_resource type="Texture2D" uid="uid://cl50gqqifetvu" path="res://art/Cloud (1).svg" id="1_s0ih4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2eote"]
+size = Vector2(112, 20)
+
+[node name="platform" type="StaticBody2D" unique_id=1453230582]
+
+[node name="Cloud(1)" type="Sprite2D" parent="." unique_id=309744259]
+position = Vector2(9.365207, -12.937496)
+scale = Vector2(0.13271838, 0.13271838)
+texture = ExtResource("1_s0ih4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1034636625]
+shape = SubResource("RectangleShape2D_2eote")
+one_way_collision = true

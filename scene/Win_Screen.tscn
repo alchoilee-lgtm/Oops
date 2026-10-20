@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://ee41tdecb368"]
+
+[ext_resource type="Script" uid="uid://bog6c23q0bjjt" path="res://script/win_screen.gd" id="1_6mj5h"]
+[ext_resource type="Texture2D" uid="uid://c0lkh7qahy7qy" path="res://art/Win screen .svg" id="2_chkij"]
+[ext_resource type="Texture2D" uid="uid://dnhybkuvyoao5" path="res://art/Win screen 2.svg" id="3_ttlc4"]
+[ext_resource type="Texture2D" uid="uid://bqoooy337v4uu" path="res://art/Trans.svg" id="4_chkij"]
+[ext_resource type="AudioStream" uid="uid://1gdduw626nsx" path="res://sounds/watermello-sad-sadness-477140.mp3" id="5_ttlc4"]
+
+[node name="Win_screen" type="Node2D" unique_id=1669482314]
+script = ExtResource("1_6mj5h")
+
+[node name="WinScreen" type="Sprite2D" parent="." unique_id=1033659799]
+z_index = 2
+position = Vector2(24, -53.00001)
+scale = Vector2(0.22479947, 0.22479953)
+texture = ExtResource("2_chkij")
+
+[node name="WinScreen2" type="Sprite2D" parent="." unique_id=1819488140]
+z_index = 1
+position = Vector2(20.648556, -48.706818)
+scale = Vector2(0.22523414, 0.2226822)
+texture = ExtResource("3_ttlc4")
+
+[node name="One" type="Timer" parent="." unique_id=612225309]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Two" type="Timer" parent="." unique_id=1266001755]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Fade" type="Sprite2D" parent="." unique_id=698984737]
+modulate = Color(0, 0, 0, 1)
+z_index = 5
+position = Vector2(576.75, 321)
+scale = Vector2(1.6078838, 1.5395349)
+texture = ExtResource("4_chkij")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=110228995]
+stream = ExtResource("5_ttlc4")
+autoplay = true
+
+[connection signal="timeout" from="One" to="." method="_on_one_timeout"]
+[connection signal="timeout" from="Two" to="." method="_on_two_timeout"]

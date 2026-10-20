@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://d1kaou86lmd2e"]
+
+[ext_resource type="Script" uid="uid://d0hbiunb5i1e5" path="res://script/asteroid.gd" id="1_p0ukn"]
+[ext_resource type="Texture2D" uid="uid://yibiv86hnw03" path="res://art/costume9 (3).svg" id="2_3vyb8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eote"]
+radius = 21.095022
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qj28"]
+radius = 21.095022
+
+[node name="Asteroid" type="RigidBody2D" unique_id=1410346592]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_p0ukn")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1033271849]
+position = Vector2(-2.9531248, -6.0468755)
+scale = Vector2(0.16422303, 0.16422303)
+texture = ExtResource("2_3vyb8")
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=566855121]
+shape = SubResource("CircleShape2D_2eote")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=473086365]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=442772048]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=483520983]
+shape = SubResource("CircleShape2D_7qj28")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

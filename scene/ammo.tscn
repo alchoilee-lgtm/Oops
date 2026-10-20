@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cov58df32qew"]
+
+[ext_resource type="Script" uid="uid://di7p5vnibfp23" path="res://script/ammo.gd" id="1_176dg"]
+[ext_resource type="Texture2D" uid="uid://b00rul8igtg6p" path="res://art/costume12 (1).svg" id="2_et2ru"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m2l4i"]
+size = Vector2(22, 22)
+
+[node name="Ammo" type="Area2D" unique_id=1905268941]
+script = ExtResource("1_176dg")
+
+[node name="Costume12(1)" type="Sprite2D" parent="." unique_id=60929761]
+scale = Vector2(0.048206277, 0.04820628)
+texture = ExtResource("2_et2ru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2085938615]
+shape = SubResource("RectangleShape2D_m2l4i")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

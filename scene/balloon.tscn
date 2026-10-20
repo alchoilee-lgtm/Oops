@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://etp8u08h23wa"]
+
+[ext_resource type="Script" uid="uid://p85ckd13ix21" path="res://script/balloon.gd" id="1_r345k"]
+[ext_resource type="Texture2D" uid="uid://cb80jcl3uuoxb" path="res://art/Balloon (1).svg" id="2_a5nmh"]
+[ext_resource type="AudioStream" uid="uid://cl8eno15jy5sk" path="res://sounds/universfield-balloon-burst-383750.mp3" id="3_8ybpw"]
+[ext_resource type="AudioStream" uid="uid://f6exvqypspwv" path="res://sounds/hitHurt.wav" id="4_v837o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcb8y"]
+radius = 36.345562
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2eote"]
+bg_color = Color(0.3172, 0.38818, 0.52, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7qj28"]
+bg_color = Color(0.71000004, 0.81633335, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eote"]
+radius = 36.05551
+
+[node name="Balloon" type="CharacterBody2D" unique_id=1836581593]
+z_index = 3
+collision_layer = 4
+collision_mask = 2052
+script = ExtResource("1_r345k")
+
+[node name="Balloon(1)" type="Sprite2D" parent="." unique_id=1007060722]
+position = Vector2(0, 21)
+scale = Vector2(0.15527137, 0.15527137)
+texture = ExtResource("2_a5nmh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326615343]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_hcb8y")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=361501393]
+offset_left = -65.0
+offset_top = -71.0
+offset_right = 64.0
+offset_bottom = -54.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2eote")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7qj28")
+max_value = 110.0
+value = 110.0
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1066317832]
+collision_layer = 12
+collision_mask = 2060
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1734581708]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_2eote")
+
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=803444167]
+stream = ExtResource("3_8ybpw")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="." unique_id=416818849]
+stream = ExtResource("4_v837o")
+volume_db = 6.33
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

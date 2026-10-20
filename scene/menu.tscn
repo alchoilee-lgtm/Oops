@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://deyn20fjkl6uu"]
+
+[ext_resource type="Script" uid="uid://cvo360vgypuep" path="res://script/menu.gd" id="1_wd6lm"]
+[ext_resource type="Texture2D" uid="uid://drwa5vvwdvnd5" path="res://art/costume2 (14).svg" id="2_nuiae"]
+[ext_resource type="Texture2D" uid="uid://dstr7h1fvqri3" path="res://art/costume4 (4).svg" id="3_pb5j1"]
+[ext_resource type="Script" uid="uid://8lj8febsbocb" path="res://script/rope.gd" id="4_wd6lm"]
+[ext_resource type="Texture2D" uid="uid://b6scl2x8mydac" path="res://art/costume3 (3).svg" id="5_akoio"]
+[ext_resource type="Script" uid="uid://c8hh1anar8lgp" path="res://script/ballon.gd" id="6_wd6lm"]
+[ext_resource type="Texture2D" uid="uid://it3vvfpofxy0" path="res://art/Untitled drawing (32) (4).svg" id="7_nuiae"]
+[ext_resource type="Script" uid="uid://6axkjt10qgi5" path="res://script/woops.gd" id="8_wd6lm"]
+[ext_resource type="Texture2D" uid="uid://cuvlygnsdixbt" path="res://art/Untitled drawing (33) (1).svg" id="9_pb5j1"]
+[ext_resource type="AudioStream" uid="uid://ngncadum7d1s" path="res://sounds/arthurhale-cheerful-simple-music-308483.mp3" id="10_pb5j1"]
+
+[node name="Menu" type="Node2D" unique_id=818065338]
+script = ExtResource("1_wd6lm")
+
+[node name="Backdrop" type="Sprite2D" parent="." unique_id=765544314]
+position = Vector2(1.9999974, -43)
+scale = Vector2(0.18145753, 0.18145753)
+texture = ExtResource("2_nuiae")
+
+[node name="Rope" type="Sprite2D" parent="." unique_id=1314159783]
+position = Vector2(554.25, 380)
+scale = Vector2(0.17307645, 0.15606326)
+texture = ExtResource("3_pb5j1")
+script = ExtResource("4_wd6lm")
+
+[node name="Ballon" type="Sprite2D" parent="." unique_id=708567417]
+position = Vector2(555, 239.00002)
+scale = Vector2(0.19857855, 0.19857858)
+texture = ExtResource("5_akoio")
+script = ExtResource("6_wd6lm")
+
+[node name="woops" type="Sprite2D" parent="." unique_id=787569257]
+position = Vector2(554, 272)
+scale = Vector2(0.1954404, 0.19898188)
+texture = ExtResource("7_nuiae")
+script = ExtResource("8_wd6lm")
+
+[node name="Space to Start" type="Sprite2D" parent="." unique_id=14370192]
+position = Vector2(556.4602, 594)
+scale = Vector2(0.14159304, 0.14159302)
+texture = ExtResource("9_pb5j1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1130340648]
+stream = ExtResource("10_pb5j1")
+autoplay = true
+
+[connection signal="start" from="." to="Rope" method="_on_menu_start"]
+[connection signal="start" from="." to="Ballon" method="_on_menu_start"]
+[connection signal="start" from="." to="woops" method="_on_menu_start"]

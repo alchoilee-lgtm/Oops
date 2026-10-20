@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://64avp65ps44y"]
+
+[ext_resource type="PackedScene" uid="uid://d0ba8b6fdxpyx" path="res://scene/line_balance.tscn" id="1_lfdwp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eote"]
+radius = 4.1231055
+
+[node name="Spring_Line" type="Node2D" unique_id=949573176]
+
+[node name="line_balance" parent="." unique_id=874090983 instance=ExtResource("1_lfdwp")]
+
+[node name="centre" type="StaticBody2D" parent="." unique_id=214289101]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="centre" unique_id=1380994159]
+shape = SubResource("CircleShape2D_2eote")
+
+[node name="Pin_Joint" type="DampedSpringJoint2D" parent="." unique_id=786372624]
+node_a = NodePath("../centre")
+node_b = NodePath("../line_balance")

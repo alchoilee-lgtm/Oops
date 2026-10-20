@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://blnmve6ogvuau"]
+
+[ext_resource type="Script" uid="uid://bckweh6a86eyj" path="res://script/death_screen.gd" id="1_dp5hg"]
+[ext_resource type="Texture2D" uid="uid://ci3mns31nqcjd" path="res://art/Dead Screen.svg" id="2_v0yen"]
+[ext_resource type="Texture2D" uid="uid://dv8o73ilncj0v" path="res://art/Untitled drawing (39).svg" id="3_kculf"]
+[ext_resource type="Texture2D" uid="uid://cwgfrgxmg5crs" path="res://art/Untitled drawing (40).svg" id="4_3cwja"]
+[ext_resource type="Texture2D" uid="uid://cpd0kqbjetrpn" path="res://art/Untitled drawing (41).svg" id="5_v0yen"]
+[ext_resource type="AudioStream" uid="uid://dou4y0rhga8u8" path="res://sounds/andriih-sad-sad-music-601661.mp3" id="6_kculf"]
+
+[node name="Death Screen_Pop" type="Node2D" unique_id=1394504715]
+script = ExtResource("1_dp5hg")
+
+[node name="DeadScreen" type="Sprite2D" parent="." unique_id=1771160035]
+position = Vector2(572, 332)
+scale = Vector2(0.17734526, 0.17734526)
+texture = ExtResource("2_v0yen")
+
+[node name="UntitledDrawing(39)" type="Sprite2D" parent="." unique_id=2041970655]
+visible = false
+z_index = 1
+position = Vector2(613.9996, 988.5008)
+scale = Vector2(0.11250001, 0.1125)
+texture = ExtResource("3_kculf")
+
+[node name="UntitledDrawing(40)" type="Sprite2D" parent="." unique_id=55719648]
+z_index = 1
+position = Vector2(819.6663, 969.50006)
+scale = Vector2(0.10253268, 0.10253268)
+texture = ExtResource("4_3cwja")
+
+[node name="UntitledDrawing(41)" type="Sprite2D" parent="." unique_id=1398879014]
+visible = false
+z_index = 1
+position = Vector2(685.3307, 969.99994)
+scale = Vector2(0.11186561, 0.11186561)
+texture = ExtResource("5_v0yen")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1291826228]
+stream = ExtResource("6_kculf")

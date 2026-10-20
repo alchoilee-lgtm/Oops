@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cira4qnlu7nxr"]
+
+[ext_resource type="Script" uid="uid://cr8sd21tn56fl" path="res://script/line_obstacle.gd" id="1_y8bp8"]
+[ext_resource type="Texture2D" uid="uid://45ofl765mtha" path="res://art/8-Ball2 (1).svg" id="2_y8bp8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jn2js"]
+size = Vector2(13.997902, 350.0124)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xjfa1"]
+size = Vector2(13.997903, 349.99982)
+
+[node name="line_obstacle" type="RigidBody2D" unique_id=874090983]
+rotation = -0.0010448461
+collision_layer = 0
+collision_mask = 4
+gravity_scale = 0.509
+linear_damp = 7.972
+script = ExtResource("1_y8bp8")
+metadata/_edit_group_ = true
+
+[node name="8Ball2(1)" type="Sprite2D" parent="." unique_id=34631691]
+position = Vector2(1.5658464, -0.44029284)
+rotation = 1.57093
+scale = Vector2(0.6353196, 0.50467485)
+texture = ExtResource("2_y8bp8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762768119]
+position = Vector2(-0.0010447807, 0.012550364)
+shape = SubResource("RectangleShape2D_jn2js")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2067320326]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1196177250]
+position = Vector2(-1.3525747e-08, -5.3645624e-07)
+shape = SubResource("RectangleShape2D_xjfa1")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

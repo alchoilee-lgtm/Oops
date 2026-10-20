@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://uuyleyuihjt1"]
+
+[ext_resource type="Script" uid="uid://dgsbdopgflwbx" path="res://script/player_shoot.gd" id="1_qm8pa"]
+[ext_resource type="Texture2D" uid="uid://bmu43rd08wr3e" path="res://art/costume1 (1).svg" id="2_lj32k"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2eote"]
+particle_flag_disable_z = true
+spread = 13.605
+initial_velocity_min = 406.06
+initial_velocity_max = 674.24
+angular_velocity_min = -98.180016
+angular_velocity_max = 109.08998
+gravity = Vector3(0, 1200, 0)
+scale_min = 0.01
+scale_max = 0.01
+color = Color(1, 0.8156863, 0, 1)
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+
+[node name="Player Shoot" type="Node2D" unique_id=1551511534]
+rotation = 1.550314
+script = ExtResource("1_qm8pa")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1198255612]
+emitting = false
+amount = 5
+texture = ExtResource("2_lj32k")
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2eote")

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d032g4htqexvr"]
+
+[ext_resource type="Script" uid="uid://cv6skbw0tljiq" path="res://script/frame_2.gd" id="1_ht1hl"]
+[ext_resource type="Texture2D" uid="uid://bhp4bqeih8yfn" path="res://art/Slide_2 (2).svg" id="2_3lsvm"]
+
+[node name="Frame_2" type="Node2D" unique_id=364492922]
+z_index = 2
+script = ExtResource("1_ht1hl")
+
+[node name="Slide2" type="Sprite2D" parent="." unique_id=499481198]
+position = Vector2(35, -21.000002)
+scale = Vector2(0.24957697, 0.24957691)
+texture = ExtResource("2_3lsvm")
+
+[node name="Three" type="Timer" parent="." unique_id=1317236181]
+wait_time = 12.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Three" to="." method="_on_three_timeout"]

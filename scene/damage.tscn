@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cfwo3wdp468oq"]
+
+[ext_resource type="Script" uid="uid://bgl8482j4pjkc" path="res://script/damage.gd" id="2_1nyod"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2eote"]
+
+[node name="Damage" type="MeshInstance2D" unique_id=1310083015]
+modulate = Color(1, 0.17000002, 0.17000002, 1)
+position = Vector2(922.5001, -13998.001)
+scale = Vector2(6411, 33962)
+mesh = SubResource("BoxMesh_2eote")
+script = ExtResource("2_1nyod")

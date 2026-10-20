@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bgocch5d85glu"]
+
+[ext_resource type="Script" uid="uid://dli1fipdwxwvi" path="res://script/circle_obstacle.gd" id="1_bkrn3"]
+[ext_resource type="Texture2D" uid="uid://cm8lnwnt0rb57" path="res://art/8-Ball (3).svg" id="2_bkrn3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eote"]
+radius = 28.01785
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qj28"]
+radius = 28.284271
+
+[node name="circle_obstacle" type="RigidBody2D" unique_id=874090983]
+collision_layer = 0
+collision_mask = 4
+gravity_scale = 0.509
+script = ExtResource("1_bkrn3")
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1594479276]
+position = Vector2(3.4999943, -5.499998)
+scale = Vector2(0.26077098, 0.26077098)
+texture = ExtResource("2_bkrn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762768119]
+shape = SubResource("CircleShape2D_2eote")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2067320326]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1196177250]
+shape = SubResource("CircleShape2D_7qj28")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
