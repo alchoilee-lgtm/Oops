@@ -14,9 +14,10 @@ A game about a crow attempting to save his daughter's balloon from flying away o
 ## Controls
 - Use WASD or Arrow Keys to move
 - Click to shoot in the direction that your mouse is at
-- Collect ammo on clouds for shootin
+- Collect ammo on clouds for shooting
 - Shoot at the obstacles that threaten the balloon's health
 - The bar on the right of the player is ammo bar, if it runs out you can't shoot
+- Space Bar to restart
 
 ## Features
 - Short, sweet gameplay
