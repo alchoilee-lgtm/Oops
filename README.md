@@ -1,9 +1,7 @@
 # Oops
 A game about a crow attempting to save his daughter's balloon from flying away or popping by jumping on clouds
 
-
-
-
+<img width="800" height="450" alt="ezgif-74b881c038ec4972" src="https://github.com/user-attachments/assets/c01d1a77-fa52-4e0a-bb05-6833b2a94300" />
 
 
 
